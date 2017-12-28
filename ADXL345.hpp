@@ -32,7 +32,7 @@ public:
 	
 	/*
 	 * REG DEVID:
-	 * Fixed device ID 
+	 * Fixed device ID
 	 */
 	struct DEVID
 	{
@@ -69,9 +69,9 @@ public:
 	/*
 	 * REG THRESH_TAP:
 	 * Threshold value for tap interrupts. The data format is unsigned, therefore, the magnitude of the tap event is
-	 *       compared with the value in THRESH_TAP for normal tap detection. The scale factor is 62.5 mg/LSB
-	 *       (that is, 0xFF = 16 g). A value of 0 may result in undesirable behavior if single tap/double tap interrupts are
-	 *       enabled. 
+	 * compared with the value in THRESH_TAP for normal tap detection. The scale factor is 62.5 mg/LSB
+	 * (that is, 0xFF = 16 g). A value of 0 may result in undesirable behavior if single tap/double tap interrupts are
+	 * enabled.
 	 */
 	struct THRESH_TAP
 	{
@@ -108,10 +108,10 @@ public:
 	/*
 	 * REG OFSX:
 	 * The OFSX, OFSY, and OFSZ registers are each eight bits and offer user-set offset adjustments in twos complement
-	 *       format with a scale factor of 15.6 mg/LSB (that is, 0x7F = 2 g). The value stored in the offset registers is
-	 *       automatically added to the acceleration data, and the resulting value is stored in the output data registers.
-	 *       For additional information regarding offset calibration and the use of the offset registers, refer to the
-	 *       Offset Calibration section. 
+	 * format with a scale factor of 15.6 mg/LSB (that is, 0x7F = 2 g). The value stored in the offset registers is
+	 * automatically added to the acceleration data, and the resulting value is stored in the output data registers.
+	 * For additional information regarding offset calibration and the use of the offset registers, refer to the
+	 * Offset Calibration section.
 	 */
 	struct OFSX
 	{
@@ -147,7 +147,7 @@ public:
 	
 	/*
 	 * REG OFSY:
-	 * Y-axis offset 
+	 * Y-axis offset
 	 */
 	struct OFSY
 	{
@@ -183,7 +183,7 @@ public:
 	
 	/*
 	 * REG OFSZ:
-	 * Z-axis offset 
+	 * Z-axis offset
 	 */
 	struct OFSZ
 	{
@@ -220,7 +220,7 @@ public:
 	/*
 	 * REG DUR:
 	 * Tap duration: Unsigned time value representing the maximum time that an event must be above the THRESH_TAP threshold to
-	 *       qualify as a tap event. The scale factor is 625 μs/LSB. A value of 0 disables the single tap/ double tap functions. 
+	 * qualify as a tap event. The scale factor is 625 μs/LSB. A value of 0 disables the single tap/ double tap functions.
 	 */
 	struct DUR
 	{
@@ -256,7 +256,7 @@ public:
 	
 	/*
 	 * REG Latent:
-	 * Tap latency: Unsigned time value representing the wait time from the detection of a tap event to the start of the time window (defined by the window register) during which a possible second tap event can be detected. The scale factor is 1.25 ms/LSB. A value of 0 disables the double tap function. 
+	 * Tap latency: Unsigned time value representing the wait time from the detection of a tap event to the start of the time window (defined by the window register) during which a possible second tap event can be detected. The scale factor is 1.25 ms/LSB. A value of 0 disables the double tap function.
 	 */
 	struct Latent
 	{
@@ -292,7 +292,7 @@ public:
 	
 	/*
 	 * REG Window:
-	 * Tap window: Unsigned time value representing the amount of time after the expiration of the latency time (determined by the latent register) during which a second valid tap can begin. The scale factor is 1.25 ms/LSB. A value of 0 disables the double tap function. 
+	 * Tap window: Unsigned time value representing the amount of time after the expiration of the latency time (determined by the latent register) during which a second valid tap can begin. The scale factor is 1.25 ms/LSB. A value of 0 disables the double tap function.
 	 */
 	struct Window
 	{
@@ -328,7 +328,7 @@ public:
 	
 	/*
 	 * REG THRESH_ACT:
-	 * Threshold value for detecting activity. The data format is unsigned, so the magnitude of the activity event is compared with the value in the THRESH_ACT register. The scale factor is 62.5 mg/LSB. A value of 0 may result in undesirable behavior if the activity interrupt is enabled. 
+	 * Threshold value for detecting activity. The data format is unsigned, so the magnitude of the activity event is compared with the value in the THRESH_ACT register. The scale factor is 62.5 mg/LSB. A value of 0 may result in undesirable behavior if the activity interrupt is enabled.
 	 */
 	struct THRESH_ACT
 	{
@@ -364,7 +364,7 @@ public:
 	
 	/*
 	 * REG THRESH_INACT:
-	 * Inactivity threshold: threshold value for detecting inactivity. The data format is unsigned, so the magnitude of the inactivity event is compared with the value in the THRESH_INACT register. The scale factor is 62.5 mg/LSB. A value of 0 may result in undesirable behavior if the inactivity interrupt is enabled. 
+	 * Inactivity threshold: threshold value for detecting inactivity. The data format is unsigned, so the magnitude of the inactivity event is compared with the value in the THRESH_INACT register. The scale factor is 62.5 mg/LSB. A value of 0 may result in undesirable behavior if the inactivity interrupt is enabled.
 	 */
 	struct THRESH_INACT
 	{
@@ -400,7 +400,7 @@ public:
 	
 	/*
 	 * REG TIME_INACT:
-	 * Inactivity time: unsigned time value representing the amount of time that acceleration must be less than the value in the THRESH_INACT register for inactivity to be declared. The scale factor is 1 sec/LSB. Unlike the other interrupt functions, which use unfiltered data (see the Threshold section), the inactivity function uses filtered output data. At least one output sample must be generated for the inactivity interrupt to be triggered. This results in the function appearing unresponsive if the TIME_INACT register is set to a value less than the time constant of the output data rate. A value of 0 results in an interrupt when the output data is less than the value in the THRESH_INACT register. 
+	 * Inactivity time: unsigned time value representing the amount of time that acceleration must be less than the value in the THRESH_INACT register for inactivity to be declared. The scale factor is 1 sec/LSB. Unlike the other interrupt functions, which use unfiltered data (see the Threshold section), the inactivity function uses filtered output data. At least one output sample must be generated for the inactivity interrupt to be triggered. This results in the function appearing unresponsive if the TIME_INACT register is set to a value less than the time constant of the output data rate. A value of 0 results in an interrupt when the output data is less than the value in the THRESH_INACT register.
 	 */
 	struct TIME_INACT
 	{
@@ -436,7 +436,7 @@ public:
 	
 	/*
 	 * REG ACT_INACT_CTL:
-	 * Axis enable control for activity and inactivity detection 
+	 * Axis enable control for activity and inactivity detection
 	 */
 	struct ACT_INACT_CTL
 	{
@@ -453,7 +453,7 @@ public:
 		/* Bits ACT_X: */
 		/*
 		 * Enable axis participation in detecting activity or inactivity.
-		 *           If all axes are excluded, the function is disabled. For activity detection, all participating axes are logically OR'ed, causing the activity function to trigger when any of the partici- pating axes exceeds the threshold. For inactivity detection, all participating axes are logically AND'ed, causing the inactivity function to trigger only if all participating axes are below the threshold for the specified time. 
+		 * If all axes are excluded, the function is disabled. For activity detection, all participating axes are logically OR'ed, causing the activity function to trigger when any of the partici- pating axes exceeds the threshold. For inactivity detection, all participating axes are logically AND'ed, causing the inactivity function to trigger only if all participating axes are below the threshold for the specified time.
 		 */
 		struct ACT_X
 		{
@@ -521,7 +521,7 @@ public:
 	
 	/*
 	 * REG THRESH_FF:
-	 * Free-fall threshold: threshold value, in unsigned format, for free-fall detection. The acceleration on all axes is compared with the value in THRESH_FF to determine if a free-fall event occurred. The scale factor is 62.5 mg/LSB. Note that a value of 0 mg may result in undesirable behavior if the free- fall interrupt is enabled. Values between 300 mg and 600 mg (0x05 to 0x09) are recommended.threshold value, in unsigned format, for free-fall detection. The acceleration on all axes is compared with the value in THRESH_FF to determine if a free-fall event occurred. The scale factor is 62.5 mg/LSB. Note that a value of 0 mg may result in undesirable behavior if the free- fall interrupt is enabled. Values between 300 mg and 600 mg (0x05 to 0x09) are recommended. 
+	 * Free-fall threshold: threshold value, in unsigned format, for free-fall detection. The acceleration on all axes is compared with the value in THRESH_FF to determine if a free-fall event occurred. The scale factor is 62.5 mg/LSB. Note that a value of 0 mg may result in undesirable behavior if the free- fall interrupt is enabled. Values between 300 mg and 600 mg (0x05 to 0x09) are recommended.threshold value, in unsigned format, for free-fall detection. The acceleration on all axes is compared with the value in THRESH_FF to determine if a free-fall event occurred. The scale factor is 62.5 mg/LSB. Note that a value of 0 mg may result in undesirable behavior if the free- fall interrupt is enabled. Values between 300 mg and 600 mg (0x05 to 0x09) are recommended.
 	 */
 	struct THRESH_FF
 	{
@@ -557,7 +557,7 @@ public:
 	
 	/*
 	 * REG TIME_FF:
-	 * Free-fall time: unsigned time value representing the minimum time that the value of all axes must be less than THRESH_FF to generate a free-fall interrupt. The scale factor is 5 ms/LSB. A value of 0 may result in undesirable behavior if the free-fall interrupt is enabled. Values between 100 ms and 350 ms (0x14 to 0x46) are recommended. 
+	 * Free-fall time: unsigned time value representing the minimum time that the value of all axes must be less than THRESH_FF to generate a free-fall interrupt. The scale factor is 5 ms/LSB. A value of 0 may result in undesirable behavior if the free-fall interrupt is enabled. Values between 100 ms and 350 ms (0x14 to 0x46) are recommended.
 	 */
 	struct TIME_FF
 	{
@@ -593,7 +593,7 @@ public:
 	
 	/*
 	 * REG TAP_AXES:
-	 * Axis control for single tap/double tap 
+	 * Axis control for single tap/double tap
 	 */
 	struct TAP_AXES
 	{
@@ -629,7 +629,7 @@ public:
 	
 	/*
 	 * REG ACT_TAP_STATUS:
-	 * Source of single tap/double tap 
+	 * Source of single tap/double tap
 	 */
 	struct ACT_TAP_STATUS
 	{
@@ -644,7 +644,7 @@ public:
 		/* Bits Suppress: */
 		/*
 		 * Setting the suppress bit suppresses double tap detection if acceleration greater than the value in THRESH_TAP
-		 *           is present between taps. See the Tap Detection section for more details. 
+		 * is present between taps. See the Tap Detection section for more details.
 		 */
 		struct Suppress
 		{
@@ -696,10 +696,10 @@ public:
 	/*
 	 * REG BW_RATE:
 	 * Data rate and power mode control:
-	 *       The ACT_X/Y/Z TAP_X/Y/Z bits indicate the first axis involved in a tap or activity event.
-	 *       When new data is available, these bits are not cleared but are overwritten by the new data. The ACT_TAP_STATUS
-	 *       register should be read before clearing the interrupt. Disabling an axis from participation clears the
-	 *       corresponding source bit when the next activity or single tap/double tap event occurs. 
+	 * The ACT_X/Y/Z TAP_X/Y/Z bits indicate the first axis involved in a tap or activity event.
+	 * When new data is available, these bits are not cleared but are overwritten by the new data. The ACT_TAP_STATUS
+	 * register should be read before clearing the interrupt. Disabling an axis from participation clears the
+	 * corresponding source bit when the next activity or single tap/double tap event occurs.
 	 */
 	struct BW_RATE
 	{
@@ -778,7 +778,7 @@ public:
 	
 	/*
 	 * REG POWER_CTL:
-	 * Power-saving features control 
+	 * Power-saving features control
 	 */
 	struct POWER_CTL
 	{
@@ -793,7 +793,7 @@ public:
 		/* Bits LINK: */
 		/*
 		 * A 1 with both the activity and inactivity functions enabled delays the start of the activity function until inactivity is detected. After activity is detected, inactivity detection begins, preventing the detection of activity. This bit serially links the activity and inactivity functions. When this bit is set to 0, the inactivity and activity functions are concurrent. Additional information can be found in the Link Mode section.
-		 *           When clearing the link bit, it is recommended that the part be placed into standby mode and then set back to measurement mode with a subsequent write. This is done to ensure that the device is properly biased if sleep mode is manually disabled; otherwise, the first few samples of data after the link bit is cleared may have additional noise, especially if the device was asleep when the bit was cleared. 
+		 * When clearing the link bit, it is recommended that the part be placed into standby mode and then set back to measurement mode with a subsequent write. This is done to ensure that the device is properly biased if sleep mode is manually disabled; otherwise, the first few samples of data after the link bit is cleared may have additional noise, especially if the device was asleep when the bit was cleared.
 		 */
 		struct LINK
 		{
@@ -803,8 +803,8 @@ public:
 		/* Bits AUTO_SLEEP: */
 		/*
 		 * If the link bit is set, a setting of 1 in the AUTO_SLEEP bit enables the auto-sleep functionality. In this mode, the ADXL345 auto- matically switches to sleep mode if the inactivity function is enabled and inactivity is detected (that is, when acceleration is below the THRESH_INACT value for at least the time indicated by TIME_INACT). If activity is also enabled, the ADXL345 automatically wakes up from sleep after detecting activity and returns to operation at the output data rate set in the BW_RATE register. A setting of 0 in the AUTO_SLEEP bit disables automatic switching to sleep mode. See the description of the Sleep Bit in this section for more information on sleep mode.
-		 *           If the link bit is not set, the AUTO_SLEEP feature is disabled and setting the AUTO_SLEEP bit does not have an impact on device operation. Refer to the Link Bit section or the Link Mode section for more information on utilization of the link feature.<br>
-		 *           When clearing the AUTO_SLEEP bit, it is recommended that the part be placed into standby mode and then set back to measure- ment mode with a subsequent write. This is done to ensure that the device is properly biased if sleep mode is manually disabled; otherwise, the first few samples of data after the AUTO_SLEEP bit is cleared may have additional noise, especially if the device was asleep when the bit was cleared. 
+		 * If the link bit is not set, the AUTO_SLEEP feature is disabled and setting the AUTO_SLEEP bit does not have an impact on device operation. Refer to the Link Bit section or the Link Mode section for more information on utilization of the link feature.<br>
+		 * When clearing the AUTO_SLEEP bit, it is recommended that the part be placed into standby mode and then set back to measure- ment mode with a subsequent write. This is done to ensure that the device is properly biased if sleep mode is manually disabled; otherwise, the first few samples of data after the AUTO_SLEEP bit is cleared may have additional noise, especially if the device was asleep when the bit was cleared.
 		 */
 		struct AUTO_SLEEP
 		{
@@ -823,7 +823,7 @@ public:
 		/* Bits Sleep: */
 		/*
 		 * Sleep mode suppresses DATA_READY, stops transmission of data to FIFO, and switches the sampling rate to one specified by the wakeup bits. In sleep mode, only the activity function can be used. When the DATA_READY interrupt is suppressed, the output data registers (Register 0x32 to Register 0x37) are still updated at the sampling rate set by the wakeup bits (D1:D0).<br>
-		 *           When clearing the sleep bit, it is recommended that the part be placed into standby mode and then set back to measurement mode with a subsequent write. This is done to ensure that the device is properly biased if sleep mode is manually disabled; otherwise, the first few samples of data after the sleep bit is cleared may have additional noise, especially if the device was asleep when the bit was cleared. 
+		 * When clearing the sleep bit, it is recommended that the part be placed into standby mode and then set back to measurement mode with a subsequent write. This is done to ensure that the device is properly biased if sleep mode is manually disabled; otherwise, the first few samples of data after the sleep bit is cleared may have additional noise, especially if the device was asleep when the bit was cleared.
 		 */
 		struct Sleep
 		{
@@ -867,8 +867,8 @@ public:
 	/*
 	 * REG INT_ENABLE:
 	 * Interrupt enable control: A value of 1 enables their respective functions to generate interrupts, whereas
-	 *       a value of 0 prevents the functions from generating interrupts. The functions are always enabled. It is
-	 *       recommended that interrupts be configured before enabling their outputs. 
+	 * a value of 0 prevents the functions from generating interrupts. The functions are always enabled. It is
+	 * recommended that interrupts be configured before enabling their outputs.
 	 */
 	struct INT_ENABLE
 	{
@@ -949,7 +949,7 @@ public:
 	/*
 	 * REG INT_MAP:
 	 * Interrupt mapping control: Any bits set to 0 in this register send their respective interrupts to the INT1 pin,
-	 *       whereas bits set to 1 send their respective interrupts to the INT2 pin. All selected interrupts for a given pin are OR'ed. 
+	 * whereas bits set to 1 send their respective interrupts to the INT2 pin. All selected interrupts for a given pin are OR'ed.
 	 */
 	struct INT_MAP
 	{
@@ -1027,7 +1027,7 @@ public:
 	/*
 	 * REG INT_SOURCE:
 	 * Source of interrupts: Bits set to 1 in this register indicate that their respective functions have triggered an
-	 *       event, whereas a value of 0 indicates that the corresponding event has not occurred. 
+	 * event, whereas a value of 0 indicates that the corresponding event has not occurred.
 	 */
 	struct INT_SOURCE
 	{
@@ -1108,7 +1108,7 @@ public:
 	/*
 	 * REG DATA_FORMAT:
 	 * Control the presentation of data to Register 0x32 through Register 0x37. All data, except that for the +/-16 g range,
-	 *       must be clipped to avoid rollover. 
+	 * must be clipped to avoid rollover.
 	 */
 	struct DATA_FORMAT
 	{
@@ -1117,7 +1117,7 @@ public:
 		/* Bits SELF_TEST: */
 		/*
 		 * 1 in the SELF_TEST bit applies a self-test force to the sensor,
-		 *           causing a shift in the output data. A value of 0 disables the self-test force. 
+		 * causing a shift in the output data. A value of 0 disables the self-test force.
 		 */
 		struct SELF_TEST
 		{
@@ -1193,8 +1193,8 @@ public:
 	/*
 	 * REG DATAX:
 	 * X-Axis output data is twos complement,
-	 *       The DATA_FORMAT register controls the format of the data. It is recommended that a multiple-byte read of all
-	 *       registers be performed to prevent a change in data between reads of sequential registers. 
+	 * The DATA_FORMAT register controls the format of the data. It is recommended that a multiple-byte read of all
+	 * registers be performed to prevent a change in data between reads of sequential registers.
 	 */
 	struct DATAX
 	{
@@ -1231,8 +1231,8 @@ public:
 	/*
 	 * REG DATAY:
 	 * Y-Axis output data is twos complement,
-	 *       The DATA_FORMAT register controls the format of the data. It is recommended that a multiple-byte read of all
-	 *       registers be performed to prevent a change in data between reads of sequential registers. 
+	 * The DATA_FORMAT register controls the format of the data. It is recommended that a multiple-byte read of all
+	 * registers be performed to prevent a change in data between reads of sequential registers.
 	 */
 	struct DATAY
 	{
@@ -1269,8 +1269,8 @@ public:
 	/*
 	 * REG DATAZ:
 	 * Z-Axis output data is twos complement,
-	 *       The DATA_FORMAT register controls the format of the data. It is recommended that a multiple-byte read of all
-	 *       registers be performed to prevent a change in data between reads of sequential registers. 
+	 * The DATA_FORMAT register controls the format of the data. It is recommended that a multiple-byte read of all
+	 * registers be performed to prevent a change in data between reads of sequential registers.
 	 */
 	struct DATAZ
 	{
@@ -1306,7 +1306,7 @@ public:
 	
 	/*
 	 * REG FIFO_CTL:
-	 * FIFO control 
+	 * FIFO control
 	 */
 	struct FIFO_CTL
 	{
@@ -1360,7 +1360,7 @@ public:
 	
 	/*
 	 * REG FIFO_STATUS:
-	 * FIFO status 
+	 * FIFO status
 	 */
 	struct FIFO_STATUS
 	{
